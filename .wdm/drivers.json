@@ -1,0 +1,18 @@
+{
+    "win64_geckodriver_v0.36.0_for_141.0": {
+        "timestamp": "21/08/2025",
+        "binary_path": "C:\\automationBNIL\\.wdm\\drivers\\geckodriver\\win64\\v0.36.0\\geckodriver.exe"
+    },
+    "win64_geckodriver_v0.36.0_for_142.0": {
+        "timestamp": "16/09/2025",
+        "binary_path": "C:\\automationBNIL\\.wdm\\drivers\\geckodriver\\win64\\v0.36.0\\geckodriver.exe"
+    },
+    "win64_geckodriver_v0.36.0_for_72.0": {
+        "timestamp": "05/02/2026",
+        "binary_path": "C:\\Users\\`Lenovo\\Documents\\automationBNILFINAL\\automationBNIL\\.wdm\\drivers\\geckodriver\\win64\\v0.36.0\\geckodriver.exe"
+    },
+    "win64_geckodriver_v0.36.0_for_147.0": {
+        "timestamp": "13/02/2026",
+        "binary_path": "C:\\Users\\`Lenovo\\Documents\\automationBNILFINAL\\automationBNIL\\.wdm\\drivers\\geckodriver\\win64\\v0.36.0\\geckodriver.exe"
+    }
+}

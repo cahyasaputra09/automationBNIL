@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="22.960" timestamp="2026-02-13T09:18:20.798923+07:00" hostname="DESKTOP-Q4UO40F"><testcase classname="tests.testCase_addData" name="test_addData[testDataBNIL0]" time="20.440"><failure message="AttributeError: 'FixtureFunctionDefinition' object has no attribute 'current_url'">driver = &lt;selenium.webdriver.firefox.webdriver.WebDriver (session="0ab932a8-fefa-47da-89df-38078ff426e4")&gt;
+base_url = 'https://bldevwapp11/Insubsyt2/Account/Login?ReturnUrl=%2fInsubsyt2%2fAccount%2fLogOff'
+testDataBNIL = {'TCID': 'AD-001', 'cara bayar': 'TAHUNAN', 'email': 'quality@gmail.com', 'expected': 'Data Calon Pemegang Polis Berhasil Disimpan', ...}
+
+    @pytest.mark.parametrize("testDataBNIL", load_excel_data("testData_addData"))
+    def test_addData(driver, base_url, testDataBNIL):
+        print(f"DEBUG: Starting test with data: {testDataBNIL}")
+    
+        log = LoginPage(driver)
+        home = HomePage(driver)
+        ilustrasi = IlustrasiPage(driver)
+    
+        # Inisialisasi data
+        username = testDataBNIL.get("username", "")
+        password = testDataBNIL.get("password", "")
+        expected = testDataBNIL.get("expected", "")
+        namaDepan = testDataBNIL.get("nama_depan", "")
+        birth = testDataBNIL.get("tgl_lahir", "")
+        kelamin = testDataBNIL.get("kelamin", "")
+        status = testDataBNIL.get("status", "")
+        caraBayar = testDataBNIL.get("cara bayar", "")
+        masaBayar = testDataBNIL.get("masa bayar", "")
+        premiDasar = testDataBNIL.get("premi dasar", "")
+        noTLP = testDataBNIL.get("no tlp", "")
+        nama_belakang = testDataBNIL.get("nama_belakang", "")
+        email = testDataBNIL.get("email", "")
+        note = testDataBNIL.get("note", "")
+    
+    
+    
+    
+        print(f"DEBUG: Data yang akan digunakan:")
+        print(f"  - username: {username}")
+        print(f"  - Nama: {namaDepan}")
+        print(f"  - Tanggal lahir: {birth}")
+        print(f"  - Kelamin: {kelamin}")
+        print(f"  - Expected: {expected}")
+    
+        # Link
+        driver.get(base_url)
+    
+        # POM login
+        print("DEBUG: Melakukan login...")
+&gt;       log.login(username, password)
+
+tests\testCase_addData.py:53: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;page.login_page.LoginPage object at 0x0000024727870590&gt;, username = 'BAS-27661', password = 'BAS-2766199@@@@'
+
+    def login(self, username, password):
+        try:
+    
+    
+    
+            close_button = WebDriverWait(self.driver, 10).until(
+                EC.element_to_be_clickable((By.XPATH, "//a[@class='close-reveal-modal']"))
+            )
+            close_button.click()
+        except:
+            pass
+    
+        username_field = self.driver.find_element(*self.username_input)
+        username_field.clear()
+        username_field.send_keys(username)
+    
+        password_field = self.driver.find_element(*self.password_input)
+        password_field.clear()
+        password_field.send_keys(password)
+    
+        time.sleep(2)
+    
+        signin = WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable((self.login_button))
+        )
+    
+        self.driver.execute_script("arguments[0].click();", signin)
+    
+    
+        print("username:", username_field.get_attribute("value"))
+        print("Password:", password_field.get_attribute("value"))
+        print("Clickable:", signin.is_enabled(), signin.is_displayed())
+        print("Location:", signin.location)
+&gt;       print("URL setelah login:", driver.current_url)
+                                    ^^^^^^^^^^^^^^^^^^
+E       AttributeError: 'FixtureFunctionDefinition' object has no attribute 'current_url'
+
+page\login_page.py:47: AttributeError</failure></testcase></testsuite></testsuites>
